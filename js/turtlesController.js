@@ -1,22 +1,16 @@
-saveTheTurtlesApp.controller('turtlesController', [ '$scope', function ($scope) {
+saveTheTurtlesApp.controller('turtlesController', [ '$scope', 'SaveTheTurtlesClientResource', function ($scope, SaveTheTurtlesClientResource) {
 
-  $scope.markers = [ {
-    id: '0',
-    latitude: 40.1451,
-    longitude: -99.6680,
-    date: '2015-07-23'
-  }, {
-    id: '1',
-    latitude: 0,
-    longitude: 0,
-    date: '2015-07-23'
-  }, {
-    id: '2',
-    latitude: -40,
-    longitude: 40,
-    date: '2015-07-23'
-  } ];
+  var saveTheTurtlesClientResource = new SaveTheTurtlesClientResource();
 
+  function initController() {
+    saveTheTurtlesClientResource.getTurtleList().then(function(turtles) {
+      $scope.markers = turtles;
+    })
+  }
+
+  initController();
+
+  // Init Google Map
   $scope.map = { center: { latitude: 0, longitude: 0 }, zoom: 1 };
 
 } ])

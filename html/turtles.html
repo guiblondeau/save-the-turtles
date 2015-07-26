@@ -1,0 +1,15 @@
+<div class="map-container consult-turtles-map col-lg-12 col-md-12">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-markers models="markers" coords="'self'" fit="true" icon="'icon'">
+            <ui-gmap-windows>
+                <div ng-non-bindable>
+                    Latitude: {{ latitude }}
+                    <br/>
+                    Longitude: {{ longitude }}
+                    <br/>
+                    Seen on: {{ date }}
+                </div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div>

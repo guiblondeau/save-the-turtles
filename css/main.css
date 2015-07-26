@@ -1,0 +1,32 @@
+.add-turtle-map .angular-google-map-container {
+    height: 400px;
+}
+
+.consult-turtles-map .angular-google-map-container {
+    height: 600px;
+}
+
+.map-container {
+    padding-top: 20px;
+}
+
+.marker-labels {
+    background-color: white;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    white-space: nowrap;
+}
+
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}

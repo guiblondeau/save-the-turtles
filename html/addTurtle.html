@@ -1,5 +1,7 @@
 <h2 class="text-center">Have you seen a turtle?</h2>
 
+<alert class="text-center" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert>
+
 <h3 class="text-center">Where?</h3>
 <div class="row">
     <div class="map-container">
@@ -38,5 +40,7 @@
 </div>
 
 <div class="text-center">
-    <a class="btn btn-primary" href="#" role="button">Add the turtle</a>
+    <button class="btn btn-primary"
+       role="button"
+       ng-click="addTurtle(clickedMarker.coords.latitude, clickedMarker.coords.longitude, date)">Add the turtle</button>
 </div>

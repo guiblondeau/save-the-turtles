@@ -1,4 +1,7 @@
-saveTheTurtlesApp.controller('addTurtleController', [ '$scope', function ($scope) {
+saveTheTurtlesApp.controller('addTurtleController', [ '$scope', 'SaveTheTurtlesClientResource', '$timeout', '$location',
+  function ($scope, SaveTheTurtlesClientResource, $timeout, $location) {
+
+  var saveTheTurtlesClientResource = new SaveTheTurtlesClientResource();
 
   // Map
 
@@ -53,5 +56,49 @@ saveTheTurtlesApp.controller('addTurtleController', [ '$scope', function ($scope
     $scope.opened = true;
   };
 
-  //
+  // Add turtle
+
+  $scope.addTurtle = function (latitude, longitude, date) {
+    if (latitude && longitude) {
+      // Add turtle
+      saveTheTurtlesClientResource.postTurtleList({
+        body: {
+          longitude: longitude,
+          latitude: latitude,
+          date: formatDate(date)
+        }
+      }).then(function() {
+        addAlert('success', 'Congratulations, you have successfully added a turtle!');
+        $timeout(function () {
+          $location.path('/turtles/')
+        }, 2000);
+      })
+    } else {
+      addAlert('warning', 'You should provide a localisation on the map.');
+    }
+  };
+
+  function formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+  // Alerts
+
+  $scope.alerts = [];
+
+  function addAlert(type, message) {
+    $scope.alerts.push({type: type, message: message});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 } ])

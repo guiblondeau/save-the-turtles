@@ -101,4 +101,5 @@ saveTheTurtlesApp.controller('addTurtleController', [ '$scope', 'SaveTheTurtlesC
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
   };
+
 } ])

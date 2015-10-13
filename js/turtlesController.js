@@ -1,10 +1,8 @@
-saveTheTurtlesApp.controller('turtlesController', [ '$scope', 'SaveTheTurtlesClientResource', function ($scope, SaveTheTurtlesClientResource) {
-
-  var saveTheTurtlesClientResource = new SaveTheTurtlesClientResource();
+saveTheTurtlesApp.controller('turtlesController', [ '$scope', 'saveTheTurtles', function ($scope, saveTheTurtles) {
 
   function initController() {
-    saveTheTurtlesClientResource.getTurtleList().then(function(turtles) {
-      $scope.markers = turtles;
+    saveTheTurtles.getTurtleList().then(function(response) {
+      $scope.markers = response.data;
     })
   }
 

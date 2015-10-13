@@ -1,4 +1,4 @@
-var saveTheTurtlesApp = angular.module('saveTheTurtles', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap']);
+var saveTheTurtlesApp = angular.module('saveTheTurtles', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap', 'restlet.saveTheTurtles']);
 
 saveTheTurtlesApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider

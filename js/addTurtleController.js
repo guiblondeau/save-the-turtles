@@ -1,7 +1,5 @@
-saveTheTurtlesApp.controller('addTurtleController', [ '$scope', 'SaveTheTurtlesClientResource', '$timeout', '$location',
-  function ($scope, SaveTheTurtlesClientResource, $timeout, $location) {
-
-  var saveTheTurtlesClientResource = new SaveTheTurtlesClientResource();
+saveTheTurtlesApp.controller('addTurtleController', [ '$scope', 'saveTheTurtles', '$timeout', '$location',
+  function ($scope, saveTheTurtles, $timeout, $location) {
 
   // Map
 
@@ -61,13 +59,11 @@ saveTheTurtlesApp.controller('addTurtleController', [ '$scope', 'SaveTheTurtlesC
   $scope.addTurtle = function (latitude, longitude, date) {
     if (latitude && longitude) {
       // Add turtle
-      saveTheTurtlesClientResource.postTurtleList({
-        body: {
+      saveTheTurtles.postTurtleList({
           longitude: longitude,
           latitude: latitude,
           date: formatDate(date)
-        }
-      }).then(function() {
+        }).then(function() {
         addAlert('success', 'Congratulations, you have successfully added a turtle!');
         $timeout(function () {
           $location.path('/turtles/')

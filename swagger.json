@@ -1,0 +1,95 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "# An API to test the button Try in Client\n\n```js\nconst toto = {};\n```",
+    "version" : "1.0.0",
+    "title" : "Try in Client 2",
+    "contact" : {
+      "name" : "YHE",
+      "email" : ""
+    }
+  },
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/file/{file}" : {
+      "get" : {
+        "summary" : "myPUT",
+        "description" : "Description of myPUT method",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "file",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/path" : {
+      "get" : {
+        "summary" : "myGET",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      },
+      "post" : {
+        "summary" : "myPOST",
+        "description" : "Description of myPOST method",
+        "consumes" : [ ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Data-Type"
+          },
+          "x-examples" : {
+            "application/json" : "{\n  \"a data-type\" :\"test\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Data-Type" : {
+      "type" : "object",
+      "required" : [ "File", "Integer" ],
+      "properties" : {
+        "String" : {
+          "type" : "string",
+          "enum" : [ "enum" ]
+        },
+        "Integer" : {
+          "type" : "integer",
+          "default" : 12
+        },
+        "arrayOfBoolean" : {
+          "type" : "array",
+          "items" : {
+            "type" : "boolean"
+          },
+          "example" : "[false,true]"
+        },
+        "File" : {
+          "type" : "string",
+          "format" : "binary",
+          "example" : "my file"
+        }
+      },
+      "example" : "a data-type"
+    }
+  }
+}
